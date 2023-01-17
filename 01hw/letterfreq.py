@@ -1,8 +1,13 @@
 ## i231 letter frequancy program ##
-from collections import Counter
+# fix path issues
+import sys
+sys.path.append("../")
 
-letters = list(
-    """"While confined here in the Birmingham city jail, I came across your recent
+from collections import Counter
+import res.res as res
+
+letters = (
+    """While confined here in the Birmingham city jail, I came across your recent
 statement calling my present activities “unwise and untimely.” Seldom do I
 pause to answer criticism of my work and ideas. If I sought to answer all
 the criticisms that cross my desk, my secretaries would have little time for
@@ -26,25 +31,9 @@ want to rest content with the superficial kind of social analysis that deals
 merely with effects and does not grapple with underlying causes."""
 )
 
-filter = [" ", "." "," "\"" "'"]
+rep = {"[": "", "]": "", ",": "", "'": "", " ": "", ".": "", "\n": "", "\"": ""}
+letters_filtered = (res.replace_all(letters, rep)).lower()
 
-letters_filtered = []
-
-for i in letters:
-    flag = False
-    for f in filter:
-        if i != f:
-            continue
-        else:
-            flag = True
-            break
-    if flag == False:
-        letters_filtered.append(i)
-    else:
-        continue
-
-letters_filtered = str(letters_filtered)
-print(letters_filtered)
 count = Counter(letters_filtered)
-
-print(list(count.elements()))
+for l in "abcdefghijklmnopqrstuvwxyz":
+    print("%s : %d" % (l, count[l]))
