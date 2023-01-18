@@ -14,8 +14,12 @@ while True:
         num_tails += 1
         print("tails: ", int(num_tails / (num_heads + num_tails) * 100),"%")
     num_flips += 1
-    if (num_heads / num_flips * 100) > 48 and (num_heads / num_flips * 100) < 52 or (num_tails / num_flips * 100) > 48 and (num_tails / num_flips * 100) < 52:
+    if num_flips <= 8:
+        continue
+    elif (num_heads / num_flips * 100) > 48 and (num_heads / num_flips * 100) < 52 or (num_tails / num_flips * 100) > 48 and (num_tails / num_flips * 100) < 52:
         break
+    else:
+        continue
 
 print(f"Total heads: {num_heads}")
 print(f"Total tails: {num_tails}")
