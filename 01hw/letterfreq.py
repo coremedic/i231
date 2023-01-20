@@ -34,6 +34,10 @@ merely with effects and does not grapple with underlying causes."""
 rep = {"[": "", "]": "", ",": "", "'": "", " ": "", ".": "", "\n": "", "\"": ""}
 letters_filtered = (res.replace_all(letters, rep)).lower()
 
+total = len(letters_filtered)
+
 count = Counter(letters_filtered)
 for l in "abcdefghijklmnopqrstuvwxyz":
-    print("%s : %d" % (l, count[l]))
+    p = count[l] / total
+    print(f"{l} : {count[l]}  {p:.2f}")
+print(f"total {total}")
