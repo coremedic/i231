@@ -5,13 +5,15 @@ def extendedGCD(a, b):
             
     gcd, s1, t1 = extendedGCD(b%a, a)
     print("\ta: " + str(a) + "\tb: " + str(b) + "\ts: " + str(s1) + "\tt: " + str(t1))
+    print(str(a) + "(" + str(s1) + ")+" + str(b) + "(" + str(t1) + ") = " + str(gcd))
     s,t = updateCoeff(a,b,s1,t1)
-    print("\ta: " + str(a) + "\tb: " + str(b) + "\ts: " + str(s) + "\tt: " + str(t) + "\n")
-    print(str(a) + "(" + str(s) + ")+" + str(b) + "(" + str(t) + ")")
+    print("\ta: " + str(a) + "\tb: " + str(b) + "\ts: " + str(s) + "\tt: " + str(t))
+    print(str(a) + "(" + str(s) + ")+" + str(b) + "(" + str(t) + ") = " + str(gcd) + "\n")
     return gcd, s, t
 
 
 def updateCoeff(a,b,s,t):
+    #print("\t")
     return (t - (b//a) * s, s) 
 
 
