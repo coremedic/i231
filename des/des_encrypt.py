@@ -1,5 +1,6 @@
 ## i231 Single DES in python ##
 import binascii
+from itertools import permutations
 
 def permutation(data, table, bits):
     """
@@ -21,3 +22,12 @@ def shifts(data, shifts):
     """
     shifted_data = data << shifts
     return shifted_data
+
+def xor(x, y):
+    """
+    takes in x and y
+    xors x and y
+    returns xored data
+    """
+    xored = x ^ y
+    return xored
